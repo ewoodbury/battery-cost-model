@@ -2,7 +2,7 @@ genParameters = {
     'cellType':'18650',
     'npRatio':1.02,
     'electrodeLength':110, #cm
-    'electrodeWidth':5 #cm
+    'electrodeWidth':5.5 #cm
     } 
 
 catFormula = {'li':1,'ni':.333,'mn':.333,'co':.333,'al':0,'o':2}
@@ -26,8 +26,8 @@ elyteParameters = {'elyteCostPerCell':0.2}
 separatorParameters = {'separatorCostPerCell':.05}
 canParameters = {'canCostPerCell':.25}
 currentcollectorParameters = {
-    'alThickness':20, #um
-    'cuThickness':10 #um
+    'alFoilThickness':20, #um
+    'cuFoilThickness':10 #um
     }
 echemParameters = {'avgDischargeVoltage':3.6}
 
