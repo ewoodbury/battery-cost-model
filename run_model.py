@@ -18,25 +18,36 @@ genParameters = {
 
 catFormula = {'li':1,'ni':.333,'mn':.333,'co':.333,'al':0,'o':2}
 catParameters = {
-    'formula':catFormula,
-    'catCapacity': 160, #mAh/g
-    'catLoading': 25, #mg/cm2
+    'catFormula':catFormula,
+    'catGravCapacity': 160, #mAh/g
+    'catTotalLoading': 25, #mg/cm2
     'catActiveFrac': .98,
     'catBinderFrac': .01,
     'catConductorFrac': .01
     }
 
 anParameters = {
-    'anCapacity': 360, #mAh/g
+    'anGravCapacity': 360, #mAh/g
     'anActiveFrac': .98,
     'anBinderFrac': .02,
     'anConductorFrac': 0
     }
 
-elyteParameters = {'elyte_costPerCell':0.2}
+elyteParameters = {'elyteCostPerCell':0.2}
+separatorParameters = {'separatorCostPerCell':.05}
+canParameters = {'canCostPerCell':.25}
+echemParameters = {'avgDischargeVoltage':3.6}
 
-separatorParameters = {'separator_costPerCell':.05}
+allParameters = {
+    'genParameters':genParameters,
+    'catParameters':catParameters,
+    'anParameters':anParameters,
+    'elyteParameters':elyteParameters,
+    'canParameters':canParameters,
+    'separatorParameters':separatorParameters,
+    'echemParameters':echemParameters
+    }
 
-model_0.get_genParameters(genParameters)
+model_0.get_allParameters(allParameters)
 
-print(f"The N-P Ratio is {model_0.npRatio}")
+print(f"The Can cost is ${model_0.canCostPerCell} per cell")
