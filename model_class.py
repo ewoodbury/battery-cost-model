@@ -37,6 +37,10 @@ class Model:
     def get_separatorParameters(self, separatorParameters):
         self.separatorCostPerCell = separatorParameters['separatorCostPerCell']
 
+    def get_currentcollectorParameters(self,currentcollectorParameters):
+        self.alThickness = currentcollectorParameters['alThickness'] #um
+        self.cuThickness = currentcollectorParameters['cuThickness'] #um
+
     def get_echemParameters(self,echemParameters):
         self.avgDischargeVoltage = echemParameters['avgDischargeVoltage']
 
@@ -55,6 +59,8 @@ class Model:
 
     # Now that we have all the inputs, we can start calculating total amounts:
     def calc_electrodeMasses(self):
+        '''Calculates total cathode and anode mass, as well as active mass, 
+        binder mass, and conductor mass for each electrode'''
         self.catTotalMass = (self.catTotalLoading*.001) * (2*self.electrodeOneSidedArea) #g
         self.catActiveMass = self.catTotalMass * self.catActiveFrac #g
         self.catCellCapacity = self.catActiveMass * self.catGravCapacity #mAh per cell
@@ -67,6 +73,22 @@ class Model:
         self.anBinderMass = self.anTotalMass * self.anBinderFrac
         self.anConductorMass = self.anTotalMass * self.anConductorFrac
 
+    def calc_cellEnergy(self):
+        '''Calculates the energy per cell (in Wh) given the cell capacity (in mAh)
+        and average discharge voltage (in V). 
+        Note that this uses cathode capacity for the calculation, given that the 
+        cathode has a lower capacity than the anode (because the N-P ratio should 
+        always be greater than 1).'''
+        self.cellEnergy = (self.catCellCapacity/1000) * self.avgDischargeVoltage
+
+    def calc_cellsPerKwh(self):
+        '''Calculates number of cells needed to have 1 kWh of energy, given the 
+        cell energy (in Wh) as an input. This metric is very useful when caculating
+        costs on a per kWh basis.'''
+        self.cellsPerKwh = 1000/self.cellEnergy
+
+    # Next up: Importing price data
+    def get_catPrice(self, catPrice)
 
 
 

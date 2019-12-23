@@ -36,6 +36,10 @@ anParameters = {
 elyteParameters = {'elyteCostPerCell':0.2}
 separatorParameters = {'separatorCostPerCell':.05}
 canParameters = {'canCostPerCell':.25}
+currentcollectorParameters = {
+    'alThickness':20, #um
+    'cuThickness':10 #um
+    }
 echemParameters = {'avgDischargeVoltage':3.6}
 
 allParameters = {
