@@ -6,6 +6,7 @@ class Model:
     def __init__(self, model_id):
         self.model_id = model_id
 
+    ## Section 1: Importing Cell Parameters
     # Now: define method to extract input parameters from input dictionaries
     def get_genParameters(self, genParameters):
         self.cellType = genParameters['cellType']
@@ -56,8 +57,8 @@ class Model:
         self.get_separatorParameters(allParameters['separatorParameters'])
         self.get_echemParameters(allParameters['echemParameters'])
 
-
-    # Now that we have all the inputs, we can start calculating total amounts:
+    ## Section 2: Basic Calculations
+    # Calculating total electrode material masses:
     def calc_electrodeMasses(self):
         '''Calculates total cathode and anode mass, as well as active mass, 
         binder mass, and conductor mass for each electrode'''
@@ -73,6 +74,7 @@ class Model:
         self.anBinderMass = self.anTotalMass * self.anBinderFrac
         self.anConductorMass = self.anTotalMass * self.anConductorFrac
 
+    # Aggregating data to calculate cell energy and 
     def calc_cellEnergy(self):
         '''Calculates the energy per cell (in Wh) given the cell capacity (in mAh)
         and average discharge voltage (in V). 
@@ -87,9 +89,9 @@ class Model:
         costs on a per kWh basis.'''
         self.cellsPerKwh = 1000/self.cellEnergy
 
-    # Next up: Importing price data
-    def get_catPrice(self, catPrice):
-        
+    # ## Section 3: Importing Price Data
+    # def get_catPrice(self, catPrice):
+
 
 
 
