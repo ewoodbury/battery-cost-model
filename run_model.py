@@ -17,12 +17,21 @@ genParameters = {
     } 
 
 catFormula = {'li':1,'ni':.333,'mn':.333,'co':.333,'al':0,'o':2}
-catParameters = {'formula':catFormula,
+catParameters = {
+    'formula':catFormula,
     'catCapacity': 160, #mAh/g
-    'catLoading': 25 #mg/cm2
+    'catLoading': 25, #mg/cm2
+    'catActiveFrac': .98,
+    'catBinderFrac': .01,
+    'catConductorFrac': .01
     }
 
-anParameters = {'anCapacity': 360}
+anParameters = {
+    'anCapacity': 360, #mAh/g
+    'anActiveFrac': .98,
+    'anBinderFrac': .02,
+    'anConductorFrac': 0
+    }
 
 elyteParameters = {'elyte_costPerCell':0.2}
 
