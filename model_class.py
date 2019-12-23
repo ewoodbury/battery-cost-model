@@ -88,7 +88,8 @@ class Model:
         self.cellsPerKwh = 1000/self.cellEnergy
 
     # Next up: Importing price data
-    def get_catPrice(self, catPrice)
+    def get_catPrice(self, catPrice):
+        
 
 
 
