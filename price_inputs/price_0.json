@@ -1,0 +1,19 @@
+{
+    "price_catActiveMaterial": 60, 
+    "price_catBinder": 0,
+    "price_catConductor": 0,
+
+    "price_anActiveMaterial":20, 
+    "price_anBinder":0,
+    "price_anConductor":0,
+
+    "price_alFoil":5,
+    "price_cuFoil":10, 
+
+    "price_can":0.20,
+    "price_separator":60,
+    "price_elyte":0.20,
+
+    "price_cellManufacturing":0,
+    "price_packIntegration":0
+}

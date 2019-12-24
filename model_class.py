@@ -1,86 +1,62 @@
-from my_functions import get_molar_mass
-
 class Model:
 
     # Initializer:
-    def __init__(self, model_id):
-        self.model_id = model_id
+    def __init__(self, cellInput, priceInput):
+        self.cellInput = cellInput
+        self.priceInput = priceInput
 
     ## Section 1: Importing Cell Parameters
     # Now: define method to extract input parameters from input dictionaries
-    def get_genParameters(self, genParameters):
-        self.cellType = genParameters['cellType']
-        self.npRatio = genParameters['npRatio']
-        self.electrodeLength = genParameters['electrodeLength'] #cm
-        self.electrodeWidth = genParameters['electrodeWidth'] #cm
+    def get_cellParameters(self):
+        self.cellId = self.cellInput['cellId']
+        self.cellName = self.cellInput['cellName']
+        self.cellType = self.cellInput['cellType']
+        self.npRatio = self.cellInput['npRatio']
+        self.electrodeLength = self.cellInput['electrodeLength'] #cm
+        self.electrodeWidth = self.cellInput['electrodeWidth'] #cm
         self.electrodeOneSidedArea = self.electrodeLength*self.electrodeWidth #cm
         
-    def get_catParameters(self, catParameters):
-        self.catFormula = catParameters['catFormula'] #Chemical formula as dictionary
-        self.catGravCapacity = catParameters['catGravCapacity'] #mAh/g
-        self.catTotalLoading = catParameters['catTotalLoading'] #mg/cm^2
-        self.catActiveFrac = catParameters['catActiveFrac']
-        self.catBinderFrac = catParameters['catBinderFrac']
-        self.catConductorFrac = catParameters['catConductorFrac']
+        self.catFormula = self.cellInput['catFormula'] #Chemical formula as dictionary
+        self.catGravCapacity = self.cellInput['catGravCapacity'] #mAh/g
+        self.catTotalLoading = self.cellInput['catTotalLoading'] #mg/cm^2
+        self.catActiveFrac = self.cellInput['catActiveFrac']
+        self.catBinderFrac = self.cellInput['catBinderFrac']
+        self.catConductorFrac = self.cellInput['catConductorFrac']
     
-    def get_anParameters(self, anParameters):
-        self.anGravCapacity = anParameters['anGravCapacity'] #mAh/g
-        self.anActiveFrac = anParameters['anActiveFrac']
-        self.anBinderFrac = anParameters['anBinderFrac']
-        self.anConductorFrac = anParameters['anConductorFrac']
+        self.anGravCapacity = self.cellInput['anGravCapacity'] #mAh/g
+        self.anActiveFrac = self.cellInput['anActiveFrac']
+        self.anBinderFrac = self.cellInput['anBinderFrac']
+        self.anConductorFrac = self.cellInput['anConductorFrac']
 
-    def get_currentcollectorParameters(self,currentcollectorParameters):
-        self.alFoilThickness = currentcollectorParameters['alFoilThickness'] #um
-        self.cuFoilThickness = currentcollectorParameters['cuFoilThickness'] #um
+        self.alFoilThickness = self.cellInput['alFoilThickness'] #um
+        self.cuFoilThickness = self.cellInput['cuFoilThickness'] #um
 
-    def get_elyteParameters(self, elyteParameters):
-        self.elyteCostPerCell = elyteParameters['elyteCostPerCell']
+        self.elyte = self.cellInput['elyte']
+        self.can = self.cellInput['can']
+        self.separator = self.cellInput['separator']
+        self.avgDischargeVoltage = self.cellInput['avgDischargeVoltage']
 
-    def get_canParameters(self, canParameters):
-        self.canCostPerCell = canParameters['canCostPerCell']
-
-    def get_separatorParameters(self, separatorParameters):
-        self.separatorCostPerCell = separatorParameters['separatorCostPerCell']
-
-    def get_echemParameters(self,echemParameters):
-        self.avgDischargeVoltage = echemParameters['avgDischargeVoltage']
-
-    # Get all input parameters:
-    def get_allParameters(self, allParameters):
-        '''Retrieves all input parameters by calling the retreival function for each 
-        individual cell component'''
-        self.get_genParameters(allParameters['genParameters'])
-        self.get_catParameters(allParameters['catParameters'])
-        self.get_anParameters(allParameters['anParameters'])
-        self.get_currentcollectorParameters(allParameters['currentcollectorParameters'])
-        self.get_elyteParameters(allParameters['elyteParameters'])
-        self.get_canParameters(allParameters['canParameters'])
-        self.get_separatorParameters(allParameters['separatorParameters'])
-        self.get_echemParameters(allParameters['echemParameters'])
 
     ##################################################################################
     ## Section 2: Importing Price Data
-    def get_materialPrices(self, price_materials):
-        self.price_catActiveMaterial = price_materials['price_catActiveMaterial']
-        self.price_catBinder = price_materials['price_catBinder']
-        self.price_catConductor = price_materials['price_catConductor']
-        self.price_anActiveMaterial = price_materials['price_anActiveMaterial']
-        self.price_anBinder = price_materials['price_anBinder']
-        self.price_anConductor = price_materials['price_anConductor']
-        self.price_alFoil = price_materials['price_alFoil']
-        self.price_cuFoil = price_materials['price_cuFoil']
-        self.price_can = price_materials['price_can']
-        self.price_separator = price_materials['price_separator']
-        self.price_elyte = price_materials['price_elyte']
+    def get_prices(self):
+        self.price_catActiveMaterial = self.priceInput['price_catActiveMaterial']
+        self.price_catBinder = self.priceInput['price_catBinder']
+        self.price_catConductor = self.priceInput['price_catConductor']
 
-    def get_manufacturingPrices(self, price_manufacturing):
-        self.price_cellManufacturing = price_manufacturing['price_cellManufacturing']
-        self.price_packIntegration = price_manufacturing['price_packIntegration']
+        self.price_anActiveMaterial = self.priceInput['price_anActiveMaterial']
+        self.price_anBinder = self.priceInput['price_anBinder']
+        self.price_anConductor = self.priceInput['price_anConductor']
 
-    # Get all prices
-    def get_allPrices(self,allPrices):
-        self.get_materialPrices(allPrices['price_materials'])
-        self.get_manufacturingPrices(allPrices['price_manufacturing'])
+        self.price_alFoil = self.priceInput['price_alFoil']
+        self.price_cuFoil = self.priceInput['price_cuFoil']
+
+        self.price_can = self.priceInput['price_can']
+        self.price_separator = self.priceInput['price_separator']
+        self.price_elyte = self.priceInput['price_elyte']
+
+        self.price_cellManufacturing = self.priceInput['price_cellManufacturing']
+        self.price_packIntegration = self.priceInput['price_packIntegration']
 
     ##################################################################################
     ## Section 3: Preliminary Calculations
@@ -157,7 +133,7 @@ class Model:
         self.cost_cuFoil = (self.mass_cuFoil/1000) * self.price_cuFoil
 
     def calc_cost_can(self):
-        self.cost_can = self.canCostPerCell
+        self.cost_can = self.price_can
 
     def calc_cost_separator(self):
         # First: calculate price per cm of length
