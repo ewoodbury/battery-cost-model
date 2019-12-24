@@ -22,19 +22,21 @@ anParameters = {
     'anConductorFrac': 0
     }
 
-elyteParameters = {'elyteCostPerCell':0.2}
-separatorParameters = {'separatorCostPerCell':.05}
-canParameters = {'canCostPerCell':.25}
 currentcollectorParameters = {
     'alFoilThickness':20, #um
     'cuFoilThickness':10 #um
     }
+
+elyteParameters = {'elyteCostPerCell':0.2}
+separatorParameters = {'separatorCostPerCell':.05}
+canParameters = {'canCostPerCell':.25}
 echemParameters = {'avgDischargeVoltage':3.6}
 
 allParameters = {
     'genParameters':genParameters,
     'catParameters':catParameters,
     'anParameters':anParameters,
+    'currentcollectorParameters':currentcollectorParameters,
     'elyteParameters':elyteParameters,
     'canParameters':canParameters,
     'separatorParameters':separatorParameters,

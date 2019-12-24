@@ -45,7 +45,7 @@ class Model:
     def get_echemParameters(self,echemParameters):
         self.avgDischargeVoltage = echemParameters['avgDischargeVoltage']
 
-    # Defining a method to extract all input parameters:
+    # Get all input parameters:
     def get_allParameters(self, allParameters):
         '''Retrieves all input parameters by calling the retreival function for each 
         individual cell component'''
@@ -58,7 +58,7 @@ class Model:
         self.get_separatorParameters(allParameters['separatorParameters'])
         self.get_echemParameters(allParameters['echemParameters'])
 
-
+    ##################################################################################
     ## Section 2: Importing Price Data
     def get_materialPrices(self, price_materials):
         self.price_catActiveMaterial = price_materials['price_catActiveMaterial']
@@ -77,8 +77,13 @@ class Model:
         self.price_cellManufacturing = price_manufacturing['price_cellManufacturing']
         self.price_packIntegration = price_manufacturing['price_packIntegration']
 
+    # Get all prices
+    def get_allPrices(self,allPrices):
+        self.get_materialPrices(allPrices['price_materials'])
+        self.get_manufacturingPrices(allPrices['price_manufacturing'])
 
-    ## Section 3: Mass Calculations
+    ##################################################################################
+    ## Section 3: Preliminary Calculations
     # Calculating total electrode material masses:
     def calc_electrodeMasses(self):
         '''Calculates total cathode and anode mass, as well as active mass, 
@@ -124,6 +129,15 @@ class Model:
         '''
         self.cellsPerKwh = 1000/self.cellEnergy
 
+    #Calculate all preliminary values:
+    def calc_allPreliminary(self):
+        self.calc_electrodeMasses()
+        self.calc_currentCollectorMasses()
+        self.calc_separatorLength()
+        self.calc_cellEnergy()
+        self.calc_cellsPerKwh()
+
+    ##################################################################################
     ## Section 4: Cost Calculations
     # All cost calculations here are on a cost per cell basis.
     def calc_cost_cat(self):
@@ -151,8 +165,24 @@ class Model:
         pricePerCm_separator = self.price_separator / (500 * 100)
         self.cost_separator = pricePerCm_separator * self.electrodeLength
 
-    def calc_cost_electrolyte(self):
-        
+    def calc_cost_elyte(self):
+        self.cost_elyte = self.price_elyte
+
+    def calc_cost_manufacturing(self):
+        self.cost_cellManufacturing = self.price_cellManufacturing
+        self.cost_packIntegration = self.price_packIntegration
+
+    # Calculate all cost values:
+    def calc_allCosts(self):
+        self.calc_cost_cat()
+        self.calc_cost_an()
+        self.calc_cost_currentCollectors()
+        self.calc_cost_can()
+        self.calc_cost_separator()
+        self.calc_cost_elyte()
+        self.calc_cost_manufacturing()
+
+    
 
 
 
