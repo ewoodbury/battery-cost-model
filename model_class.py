@@ -4,6 +4,7 @@ class Model:
     def __init__(self, cellInput, priceInput):
         self.cellInput = cellInput
         self.priceInput = priceInput
+        # Put in a model ID somewhere???
 
     ## Section 1: Importing Cell Parameters
     # Now: define method to extract input parameters from input dictionaries

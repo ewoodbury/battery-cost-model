@@ -12,25 +12,21 @@ with open(r'.\cell_inputs\nmc111.json') as cellInput_json:
 with open(r'.\price_inputs\price_0.json') as priceInput_json:  
     priceInput = json.load(priceInput_json)
 
-print(cellInput)
-
 model_0 = Model(cellInput,priceInput)
 
 model_0.get_cellParameters()
 model_0.get_prices()
 
 print(model_0.elyte)
-# print(f"The model_id is {model_0.model_id}.")
 
-# model_0.get_allParameters(allParameters)
-# print(f"The Al foil thickness is {model_0.alFoilThickness} microns.")
+print(f"The cell_id is {model_0.cellId}.")
 
-# model_0.get_allPrices(allPrices)
-# print(f"The separator price is {model_0.price_separator} USD per 500m roll.")
+print(f"The Al foil thickness is {model_0.alFoilThickness} microns.")
 
-# model_0.calc_allPreliminary()
-# print(f"The cell energy for Model ID {model_0.model_id} is {model_0.cellEnergy} Wh.")
+print(f"The separator price is {model_0.price_separator} USD per 500m roll.")
 
-# model_0.calc_allCosts()
+model_0.calc_allPreliminary()
+print(f"The cell energy for Cell ID {model_0.cellId} is {model_0.cellEnergy} Wh.")
 
-# print(f"The separator cost is {model_0.cost_separator} per cell.")
+model_0.calc_allCosts()
+print(f"The separator cost is {model_0.cost_separator} per cell.")
