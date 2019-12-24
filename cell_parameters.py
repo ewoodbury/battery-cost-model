@@ -1,7 +1,7 @@
 genParameters = {
     'cellType':'18650',
     'npRatio':1.02,
-    'electrodeLength':110, #cm
+    'electrodeLength':100, #cm
     'electrodeWidth':5.5 #cm
     } 
 

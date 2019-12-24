@@ -1,0 +1,34 @@
+{
+    "model_id": 0,
+    "model_name": "NMC111v1",
+    "cellType": "18650",
+    "npRatio": 1.02,
+    "electrodeLength": 100,
+    "electrodeWidth": 5.5,
+
+    "catFormula": {
+        "li":1,
+        "ni":0.333,
+        "mn":0.333,
+        "co":0.333,
+        "al":0,
+        "o":2
+    },
+    "catGravCapacity": 160,
+    "catTotalLoading": 25,
+    "catActiveFrac": 0.98,
+    "catBinderFrac": 0.01,
+    "catConductorFrac": 0.01,
+
+    "anGravCapacity": 360,
+    "anActiveFrac": 0.98,
+    "anBinderFrac": 0.02,
+    "anConductorFrac": 0,
+
+    "alFoilThickness": 20,
+    "cuFoilThickness": 10,
+    "elyteCostPerCell" :0.2,
+    "separatorCostPerCell": 0.05,
+    "canCostPerCell": 0.25,
+    "avgDischargeVoltage": 3.6,
+}

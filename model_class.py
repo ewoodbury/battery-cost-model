@@ -181,16 +181,3 @@ class Model:
         self.calc_cost_separator()
         self.calc_cost_elyte()
         self.calc_cost_manufacturing()
-
-    
-
-
-
-    
-
-
-    
-
-
-
-

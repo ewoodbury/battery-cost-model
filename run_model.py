@@ -23,4 +23,5 @@ model_0.calc_allPreliminary()
 print(f"The cell energy for Model ID {model_0.model_id} is {model_0.cellEnergy} Wh.")
 
 model_0.calc_allCosts()
+
 print(f"The separator cost is {model_0.cost_separator} per cell.")
