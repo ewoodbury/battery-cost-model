@@ -121,13 +121,13 @@ class Model:
         self.cost_catActiveMaterial = (self.catActiveMass/1000) * self.price_catActiveMaterial
         self.cost_catBinder = (self.catBinderMass/1000) * self.price_catBinder
         self.cost_catConductor = (self.catConductorMass/1000) * self.price_catConductor
-        self.cost_catTotal = self.cost_catActiveMaterial + self.cost_catBinder + self.cost_catConductor
+        # self.cost_catTotal = self.cost_catActiveMaterial + self.cost_catBinder + self.cost_catConductor
 
     def calc_cost_an(self):
         self.cost_anActiveMaterial = (self.anActiveMass/1000) * self.price_anActiveMaterial
         self.cost_anBinder = (self.anBinderMass/1000) * self.price_anBinder
         self.cost_anConductor = (self.anConductorMass/1000) * self.price_anConductor
-        self.cost_canTotal = self.cost_anActiveMaterial + self.cost_anBinder + self.cost_anConductor
+        # self.cost_canTotal = self.cost_anActiveMaterial + self.cost_anBinder + self.cost_anConductor
 
     def calc_cost_currentCollectors(self):
         self.cost_alFoil = (self.mass_alFoil/1000) * self.price_alFoil
@@ -158,3 +158,20 @@ class Model:
         self.calc_cost_separator()
         self.calc_cost_elyte()
         self.calc_cost_manufacturing()
+
+    def return_allCosts(self):
+        return {
+            "Cathode Active Material": self.cost_catActiveMaterial,
+            "Cathode Binder": self.cost_catBinder,
+            "Cathode Conductor": self.cost_catConductor,
+            "Anode Active Material": self.cost_anActiveMaterial,
+            "Anode Binder": self.cost_anBinder,
+            "Anode Conductor": self.cost_anConductor,
+            "Aluminum Foil": self.cost_alFoil,
+            "Copper Foil": self.cost_cuFoil,
+            "Can": self.cost_can,
+            "Separator": self.cost_separator,
+            "Electrolyte": self.cost_elyte,
+            "Manufacturing": self.cost_cellManufacturing,
+            "Pack Integration": self.cost_packIntegration
+        }

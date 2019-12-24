@@ -14,6 +14,6 @@
     "price_separator":60,
     "price_elyte":0.20,
 
-    "price_cellManufacturing":0,
-    "price_packIntegration":0
+    "price_cellManufacturing":0.5,
+    "price_packIntegration":0.4
 }
