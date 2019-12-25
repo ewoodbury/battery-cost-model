@@ -17,7 +17,6 @@ def plot_model(model):
     costDict = model.return_allCosts()
     print(costDict)
 
-    print("hello")
     plt.figure()
     plt.pie(costDict.values(), labels = costDict.keys())
     plt.show()
