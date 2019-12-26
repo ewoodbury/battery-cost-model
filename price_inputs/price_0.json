@@ -1,19 +1,20 @@
 {
-    "price_catActiveMaterial": 50, 
-    "price_catBinder": 0,
-    "price_catConductor": 0,
+    "priceId": 0,
+    "catActiveMaterial": 50, 
+    "catBinder": 0,
+    "catConductor": 0,
 
-    "price_anActiveMaterial":20, 
-    "price_anBinder":0,
-    "price_anConductor":0,
+    "anActiveMaterial":20, 
+    "anBinder":0,
+    "anConductor":0,
 
-    "price_alFoil":5,
-    "price_cuFoil":10, 
+    "alFoil":5,
+    "cuFoil":10, 
 
-    "price_can":0.20,
-    "price_separator":60,
-    "price_elyte":0.20,
+    "can":0.20,
+    "sep":60,
+    "elyte":0.20,
 
-    "price_cellManufacturing":0.5,
-    "price_packIntegration":0.4
+    "cellManufacturing":0.5,
+    "packIntegration":0.4
 }

@@ -34,30 +34,30 @@ class Model:
 
         self.elyte = self.cellInput['elyte']
         self.can = self.cellInput['can']
-        self.separator = self.cellInput['separator']
+        self.separator = self.cellInput['separatorName']
         self.avgDischargeVoltage = self.cellInput['avgDischargeVoltage']
 
 
     ##################################################################################
     ## Section 2: Importing Price Data
     def get_prices(self):
-        self.price_catActiveMaterial = self.priceInput['price_catActiveMaterial']
-        self.price_catBinder = self.priceInput['price_catBinder']
-        self.price_catConductor = self.priceInput['price_catConductor']
+        self.price_catActiveMaterial = self.priceInput['catActiveMaterial']
+        self.price_catBinder = self.priceInput['catBinder']
+        self.price_catConductor = self.priceInput['catConductor']
 
-        self.price_anActiveMaterial = self.priceInput['price_anActiveMaterial']
-        self.price_anBinder = self.priceInput['price_anBinder']
-        self.price_anConductor = self.priceInput['price_anConductor']
+        self.price_anActiveMaterial = self.priceInput['anActiveMaterial']
+        self.price_anBinder = self.priceInput['anBinder']
+        self.price_anConductor = self.priceInput['anConductor']
 
-        self.price_alFoil = self.priceInput['price_alFoil']
-        self.price_cuFoil = self.priceInput['price_cuFoil']
+        self.price_alFoil = self.priceInput['alFoil']
+        self.price_cuFoil = self.priceInput['cuFoil']
 
-        self.price_can = self.priceInput['price_can']
-        self.price_separator = self.priceInput['price_separator']
-        self.price_elyte = self.priceInput['price_elyte']
+        self.price_can = self.priceInput['can']
+        self.price_separator = self.priceInput['sep']
+        self.price_elyte = self.priceInput['elyte']
 
-        self.price_cellManufacturing = self.priceInput['price_cellManufacturing']
-        self.price_packIntegration = self.priceInput['price_packIntegration']
+        self.price_cellManufacturing = self.priceInput['cellManufacturing']
+        self.price_packIntegration = self.priceInput['packIntegration']
 
     ##################################################################################
     ## Section 3: Preliminary Calculations

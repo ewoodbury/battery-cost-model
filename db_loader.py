@@ -73,8 +73,9 @@ def priceinput_to_sql(json_path):
         priceInput = json.load(priceInput_json)
 
     print("json file opened successfully")
-    # print(", ".join(cellInput.keys()))
 
     insert_to_sql('price_input',
                   list(priceInput.keys()),
                   list(priceInput.values()))
+
+priceinput_to_sql(r'.\price_inputs\price_0.json')
