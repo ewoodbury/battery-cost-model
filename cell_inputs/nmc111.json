@@ -7,14 +7,7 @@
     "electrodeLength": 100,
     "electrodeWidth": 5.5,
 
-    "catFormula": {
-        "li": 1,
-        "ni": 0.333,
-        "mn": 0.333,
-        "co": 0.333,
-        "al": 0,
-        "o": 2
-    },
+    "catFormulaId": 0,
     "catGravCapacity": 160,
     "catTotalLoading": 25,
     "catActiveFrac": 0.98,
@@ -30,7 +23,7 @@
     "cuFoilThickness": 10,
     
     "elyte": "1.2M LiPF6 in 1:1 EC:DMC",
-    "separator": "Polypropylene, 20um thickness",
+    "separatorName": "Polypropylene, 20um thickness",
     "can":"Stainless steel 18650 can",
     "avgDischargeVoltage": 3.6
 }

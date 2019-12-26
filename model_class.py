@@ -17,7 +17,7 @@ class Model:
         self.electrodeWidth = self.cellInput['electrodeWidth'] #cm
         self.electrodeOneSidedArea = self.electrodeLength*self.electrodeWidth #cm
         
-        self.catFormula = self.cellInput['catFormula'] #Chemical formula as dictionary
+        self.catFormulaId = self.cellInput['catFormulaId'] #Chemical formula as dictionary
         self.catGravCapacity = self.cellInput['catGravCapacity'] #mAh/g
         self.catTotalLoading = self.cellInput['catTotalLoading'] #mg/cm^2
         self.catActiveFrac = self.cellInput['catActiveFrac']
