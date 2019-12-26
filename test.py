@@ -1,12 +1,19 @@
-myDict = {
+cellInput = {
     "cell_id":0,
     "cell_name": "NMC111v1"
 }
 
-list_1 = list(myDict.values())
+list_columns = list(cellInput.keys())
+list_data = list(cellInput.values())
 
-data = ', '.join([str(a) for a in list_1])
-columns = ', '.join(myDict.keys())
+columns = "(" + ", ".join(list_columns) + ")"
+
+data = "('" + "', '".join([str(a) for a in list_data]) + "')"
 
 
+
+print(list_columns)
+print(list_data)
+
+print(columns)
 print(data)
