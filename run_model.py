@@ -26,10 +26,12 @@ model_0.calc_allCosts()
 # plot_model(model_0)
 
 # Plotting: (super basic)
-costDict = model_0.return_allCosts()
-print(costDict)
+costDict_cellBasis = model_0.return_allCosts_cellBasis()
+costDict_kwhBasis = model_0.return_allCosts_kwhBasis()
+print(costDict_kwhBasis)
 
 import matplotlib.pyplot as plt
 plt.figure()
-plt.pie(costDict.values(), labels=costDict.keys())
+plt.pie(costDict_kwhBasis.values(), labels=costDict_kwhBasis.keys())
+plt.tight_layout()
 plt.show()

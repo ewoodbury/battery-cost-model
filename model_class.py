@@ -159,7 +159,7 @@ class Model:
         self.calc_cost_elyte()
         self.calc_cost_manufacturing()
 
-    def return_allCosts(self):
+    def return_allCosts_cellBasis(self):
         return {
             "Cathode Active Material": self.cost_catActiveMaterial,
             "Cathode Binder": self.cost_catBinder,
@@ -174,4 +174,26 @@ class Model:
             "Electrolyte": self.cost_elyte,
             "Manufacturing": self.cost_cellManufacturing,
             "Pack Integration": self.cost_packIntegration
+        }
+
+    def return_allCosts_kwhBasis(self):
+        '''Returns cost of each component on a per-kWh basis.
+
+        This is calculated by multiplying each of the per-cell cost basis
+        by the number of cells required to have 1kWh of energy.
+        '''
+        return {
+            "Cathode Active Material": self.cost_catActiveMaterial * self.cellsPerKwh,
+            "Cathode Binder": self.cost_catBinder * self.cellsPerKwh,
+            "Cathode Conductor": self.cost_catConductor * self.cellsPerKwh,
+            "Anode Active Material": self.cost_anActiveMaterial * self.cellsPerKwh,
+            "Anode Binder": self.cost_anBinder * self.cellsPerKwh,
+            "Anode Conductor": self.cost_anConductor * self.cellsPerKwh,
+            "Aluminum Foil": self.cost_alFoil * self.cellsPerKwh,
+            "Copper Foil": self.cost_cuFoil * self.cellsPerKwh,
+            "Can": self.cost_can * self.cellsPerKwh,
+            "Separator": self.cost_separator * self.cellsPerKwh,
+            "Electrolyte": self.cost_elyte * self.cellsPerKwh,
+            "Manufacturing": self.cost_cellManufacturing * self.cellsPerKwh,
+            "Pack Integration": self.cost_packIntegration * self.cellsPerKwh
         }
