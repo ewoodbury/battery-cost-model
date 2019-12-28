@@ -81,4 +81,5 @@ def priceinput_to_sql(json_path):
                   list(priceInput.keys()),
                   list(priceInput.values()))
 
+#Testing price input:
 priceinput_to_sql(r'.\price_inputs\price_0.json')
