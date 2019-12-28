@@ -2,6 +2,9 @@ import json
 import mysql.connector
 
 def connect_to_sql():
+    '''Connects to the MySQL server using username/password
+    Returns connection object for querying
+    '''
     connection = mysql.connector.connect(
         host="localhost",
         user="root",
