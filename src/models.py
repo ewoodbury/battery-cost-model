@@ -9,7 +9,7 @@ from django.db import models
 
 
 class CellInput(models.Model):
-    cellid = models.IntegerField(db_column='cellId', primary_key=True)  # Field name made lowercase.
+    cellid = models.AutoField(db_column='cellId', primary_key=True)  # Field name made lowercase.
     cellname = models.CharField(db_column='cellName', unique=True, max_length=45)  # Field name made lowercase.
     celltype = models.CharField(db_column='cellType', max_length=45)  # Field name made lowercase.
     npratio = models.FloatField(db_column='npRatio')  # Field name made lowercase.
@@ -38,7 +38,7 @@ class CellInput(models.Model):
 
 
 class PriceInput(models.Model):
-    priceid = models.IntegerField(db_column='priceId', primary_key=True)  # Field name made lowercase.
+    priceid = models.AutoField(db_column='priceId', primary_key=True)  # Field name made lowercase.
     catactivematerial = models.FloatField(db_column='catActiveMaterial', blank=True, null=True)  # Field name made lowercase.
     catbinder = models.FloatField(db_column='catBinder', blank=True, null=True)  # Field name made lowercase.
     catconductor = models.FloatField(db_column='catConductor', blank=True, null=True)  # Field name made lowercase.
