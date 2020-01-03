@@ -4,9 +4,10 @@ from . import views
 
 urlpatterns = [
 
-    # path('', views.cell_list, name='cell_list'),
+    path('', views.cell_list, name='cells_home'),
+    path('cell_list', views.cell_list, name='cells_list'),
 
-    path('new/', views.cell_input, name='cell_input'),
+    path('new/', views.new_cell, name='new_cell'),
 
 #     path('cell_input_confirm/', views.cell_input_confirm, name='cell_input_confirm'),
 

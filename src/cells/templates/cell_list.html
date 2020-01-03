@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'new_cell' %}">Add new cell</a>
+<table border="2" width="600">
+    <tr>
+        <td>cell_id</td>
+        <td>cell_name</td>
+        <td>cell_type</td>
+        <td>np_ratio</td>
+        <td>electrode_length</td>
+        <td>electrode_width</td>
+        <td>cat_formula_id</td>
+        <td>cat_grav_capacity</td>
+        <td>cat_total_loading</td>
+        <td>cat_active_frac</td>
+        <td>cat_conductor_frac</td>
+        <td>an_grav_capacity</td>
+        <td>an_active_frac</td>
+        <td>an_binder_frac</td>
+        <td>an_conductor_frac</td>
+        <td>al_foil_thickness</td>
+        <td>cu_foil_thickness</td>
+        <td>elyte</td>
+        <td>separator_name</td>
+        <td>can</td>
+        <td>avg_discharge_voltage</td>
+    </tr>
+    {% for item in query_results%}
+    <tr>
+        <td>{{item.cell_id}}</td>
+        <td>{{item.cell_name}}</td>
+        <td>{{item.cell_type}}</td>
+        <td>{{item.np_ratio}}</td>
+        <td>{{item.electrode_length}}</td>
+        <td>{{item.electrode_width}}</td>
+        <td>{{item.cat_formula_id}}</td>
+        <td>{{item.cat_grav_capacity}}</td>
+        <td>{{item.cat_total_loading}}</td>
+        <td>{{item.cat_active_frac}}</td>
+        <td>{{item.cat_conductor_frac}}</td>
+        <td>{{item.an_grav_capacity}}</td>
+        <td>{{item.an_active_frac}}</td>
+        <td>{{item.an_binder_frac}}</td>
+        <td>{{item.an_conductor_frac}}</td>
+        <td>{{item.al_foil_thickness}}</td>
+        <td>{{item.cu_foil_thickness}}</td>
+        <td>{{item.elyte}}</td>
+        <td>{{item.separator_name}}</td>
+        <td>{{item.can}}</td>
+        <td>{{item.avg_discharge_voltage}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+{% endblock %}

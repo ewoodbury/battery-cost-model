@@ -8,7 +8,17 @@ from .forms import CellInputForm
 #     '''
 #     return render([request], [template_name], [context])
 
-def cell_input(request):
+def cell_list(request):
+    '''Display table of all cells models in the databse.
+    '''
+    query_results = CellInput.objects.all()
+
+    context = {
+        'query_results':query_results
+    }
+    return render(request, "cell_list.html", context)
+
+def new_cell(request):
     '''Renders form allowing users to input cell parameters and 
     submit data to databse.
     '''
@@ -17,10 +27,10 @@ def cell_input(request):
         #we know the input data is good
         print(my_form.cleaned_data)
         #Need to fix names to match before enabling this code:
-        # CellInput.objects.create(**my_form.cleaned_data)
-        # my_form = CellInputForm()
+        CellInput.objects.create(**my_form.cleaned_data)
+        my_form = CellInputForm()
 
     context = {
         'form': my_form
     }
-    return render(request, "cell_input.html", context)
+    return render(request, "new_cell.html", context)

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'new_price' %}">Add new price dataset</a>
+
+<table border="2" width="600">
+    <tr>
+        <td>price_id</td>
+        <td>cat_active_material</td>
+        <td>cat_binder</td>
+        <td>cat_conductor</td>
+        <td>an_active_material</td>
+        <td>an_binder</td>
+        <td>an_conductor</td>
+        <td>al_foil</td>
+        <td>cu_foil</td>
+        <td>can</td>
+        <td>sep</td>
+        <td>elyte</td>
+        <td>cell_manufacturing</td>
+        <td>pack_integration</td>
+    </tr>
+    {% for item in query_results%}
+    <tr>
+        <td>{{item.price_id}}</td>
+        <td>{{item.cat_active_material}}</td>
+        <td>{{item.cat_binder}}</td>
+        <td>{{item.cat_conductor}}</td>
+        <td>{{item.an_active_material}}</td>
+        <td>{{item.an_binder}}</td>
+        <td>{{item.an_conductor}}</td>
+        <td>{{item.al_foil}}</td>
+        <td>{{item.cu_foil}}</td>
+        <td>{{item.can}}</td>
+        <td>{{item.sep}}</td>
+        <td>{{item.elyte}}</td>
+        <td>{{item.cell_manufacturing}}</td>
+        <td>{{item.pack_integration}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+{% endblock %}
