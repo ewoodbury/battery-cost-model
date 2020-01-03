@@ -6,7 +6,7 @@ urlpatterns = [
 
     # path('', views.cell_list, name='cell_list'),
 
-    path('new/', views.cell_input, name='cell_input'),
+    path('new/', views.price_input, name='price_input'),
 
 #     path('cell_input_confirm/', views.cell_input_confirm, name='cell_input_confirm'),
 

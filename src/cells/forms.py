@@ -2,6 +2,7 @@ from django import forms
 from .models import CellInput
 
 class CellInputForm(forms.Form):
+    #Need to fix the names to match names in model here.
     cell_name = forms.CharField(max_length=45)
     cell_type = forms.CharField(max_length=45)
     np_ratio = forms.DecimalField(max_digits=20, decimal_places=3)

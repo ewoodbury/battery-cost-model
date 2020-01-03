@@ -16,7 +16,9 @@ def cell_input(request):
     if my_form.is_valid():
         #we know the input data is good
         print(my_form.cleaned_data)
+        #Need to fix names to match before enabling this code:
         # CellInput.objects.create(**my_form.cleaned_data)
+        # my_form = CellInputForm()
 
     context = {
         'form': my_form
