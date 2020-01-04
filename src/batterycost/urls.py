@@ -22,4 +22,5 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('cells/', include('cells.urls')),
     path('prices/', include('prices.urls')),
+    path('run_model/', include('cost_results.urls')),
 ]

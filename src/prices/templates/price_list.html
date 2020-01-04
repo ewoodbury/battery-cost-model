@@ -6,6 +6,7 @@
 <table border="2" width="600">
     <tr>
         <td>price_id</td>
+        <td>price_name</td>
         <td>cat_active_material</td>
         <td>cat_binder</td>
         <td>cat_conductor</td>
@@ -23,6 +24,7 @@
     {% for item in query_results%}
     <tr>
         <td>{{item.price_id}}</td>
+        <td>{{item.price_name}}</td>
         <td>{{item.cat_active_material}}</td>
         <td>{{item.cat_binder}}</td>
         <td>{{item.cat_conductor}}</td>

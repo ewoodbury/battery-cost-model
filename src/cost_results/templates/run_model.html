@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Select cell_id:</h3>
+<form method='POST'> {% csrf_token %}
+<select name='cell_id'>
+    {% for entry in cell_options %}
+        <option value='{{ entry.cell_id }}'>{{ entry.cell_name }}</option>
+    {% endfor %}
+</select>
+</form>
+
+<h3>Select price_id:</h3>
+<form method='POST'> {% csrf_token %}
+<select name='price_id'>
+    {% for entry in price_options %}
+        <option value='{{ entry.cell_id }}'>{{ entry.price_name }}</option>
+    {% endfor %}
+</select>
+</form>
+
+{% endblock %}

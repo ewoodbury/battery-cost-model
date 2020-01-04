@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class PriceInput(models.Model):
     price_id = models.AutoField(db_column='priceId', primary_key=True)
+    price_name = models.CharField(db_column='priceName', max_length=45)
     cat_active_material = models.DecimalField(db_column='catActiveMaterial', max_digits=20, decimal_places=2)
     cat_binder = models.DecimalField(db_column='catBinder', max_digits=20, decimal_places=2)
     cat_conductor = models.DecimalField(db_column='catConductor', max_digits=20, decimal_places=2)
