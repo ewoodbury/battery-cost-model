@@ -19,6 +19,7 @@ def new_price(request):
     submit data to databse.
     '''
     if request.method == 'POST':
+        my_form = PriceInputForm(request.POST)
         if my_form.is_valid():
             PriceInput.objects.create(**my_form.cleaned_data)
             my_form = PriceInputForm()

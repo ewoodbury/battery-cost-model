@@ -18,7 +18,7 @@ def run_model(request):
         if my_form.is_valid():
             cell_instance = my_form.cleaned_data['cell_choice']
             price_instance = my_form.cleaned_data['price_choice']
-            # print(my_form.cleaned_data['cell_choice'].cell_name)
+            print(type(my_form.cleaned_data['cell_choice'].avg_discharge_voltage))
             # print(my_form.cleaned_data['price_choice'])
             cost_model_instance = CostModel(cell_instance, price_instance)
             #NEED TO FIX DECIMALS VS FLOATS WTF

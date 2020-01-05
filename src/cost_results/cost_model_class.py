@@ -1,3 +1,4 @@
+from decimal import *
 class CostModel:
 
     # Initializer:
