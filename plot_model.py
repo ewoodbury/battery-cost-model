@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-from model_class import Model
+from cost_model_class import CostModel
 
 def plot_model(model):
     '''Creates a simple plot of the cost breakdown from a Model instance. 
@@ -12,7 +12,7 @@ def plot_model(model):
     Note that the instance must have had its calculate methods
     executed already so that the cost results are present.
     '''
-    assert isinstance(model, Model),"Input must be an instance of class Model!"
+    assert isinstance(model, CostModel),"Input must be an instance of class Model!"
 
     costDict = model.return_allCosts()
     print(costDict)

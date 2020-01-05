@@ -31,6 +31,9 @@ class CellInput(models.Model):
     can = models.CharField(max_length=45, blank=True, null=True)
     avg_discharge_voltage = models.DecimalField(db_column='avgDischargeVoltage', max_digits=20, decimal_places=3)
 
+    def __str__(self):
+        return str(self.cell_id) + " - " + self.cell_name
+
     class Meta:
         managed = True
         db_table = 'cell_input'

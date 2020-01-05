@@ -18,11 +18,11 @@ def new_price(request):
     '''Renders form allowing users to input prices and 
     submit data to databse.
     '''
-    my_form = PriceInputForm(request.POST)
-    if my_form.is_valid():
-        #we know the input data is good
-        # print(my_form.cleaned_data)
-        PriceInput.objects.create(**my_form.cleaned_data)
+    if request.method == 'POST':
+        if my_form.is_valid():
+            PriceInput.objects.create(**my_form.cleaned_data)
+            my_form = PriceInputForm()
+    else: #if it's an initial rendering with method == GET, generate blank page
         my_form = PriceInputForm()
 
     context = {

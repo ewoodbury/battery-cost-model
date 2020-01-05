@@ -5,7 +5,8 @@ from . import views
 urlpatterns = [
 
     path('', views.run_model, name='run_model'),
-    # path('cell_list', views.cell_list, name='cells_list'),
+
+    path('confirm', views.run_model_confirm, name='run_model_confirm'),
 
     # path('new/', views.new_cell, name='new_cell'),
 

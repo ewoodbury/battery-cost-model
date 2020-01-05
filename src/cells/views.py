@@ -2,11 +2,6 @@ from django.shortcuts import render
 
 from .models import CellInput
 from .forms import CellInputForm
-# Create your views here.
-# def cell_list(request):
-#     '''Renders view of all previously registered cells
-#     '''
-#     return render([request], [template_name], [context])
 
 def cell_list(request):
     '''Display table of all cells models in the databse.
@@ -21,16 +16,22 @@ def cell_list(request):
 def new_cell(request):
     '''Renders form allowing users to input cell parameters and 
     submit data to databse.
+
+    If it's an initial rendering, request.method == 'GET' and will render blank form
+    If input data is not valid, it re-renders the form with submitted data still present,
+    but also includes error messages.
+    If data is valid, it creates a new object and redirects to confirmation page.
     '''
-    my_form = CellInputForm(request.POST)
-    if my_form.is_valid():
-        #we know the input data is good
-        print(my_form.cleaned_data)
-        #Need to fix names to match before enabling this code:
-        CellInput.objects.create(**my_form.cleaned_data)
+    if request.method == 'POST':
+        my_form = CellInputForm(request.POST)
+        if my_form.is_valid(): # if we know the input data is good
+            CellInput.objects.create(**my_form.cleaned_data)
+            my_form = CellInputForm() #Re-renders page as blank
+            #want to make this a redirect to confirmation page instead
+    else: #if method is GET (it's an initial rendering)
         my_form = CellInputForm()
 
     context = {
-        'form': my_form
+        'my_form': my_form
     }
     return render(request, "new_cell.html", context)

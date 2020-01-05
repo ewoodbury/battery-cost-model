@@ -2,22 +2,14 @@
 
 {% block content %}
 
-<h3>Select cell_id:</h3>
+<h3>Select cell and price inputs to be used in model:</h3>
 <form method='POST'> {% csrf_token %}
-<select name='cell_id'>
-    {% for entry in cell_options %}
-        <option value='{{ entry.cell_id }}'>{{ entry.cell_name }}</option>
-    {% endfor %}
-</select>
+    {{ my_form.as_p }}
+<input type='submit' value='Run Model' />
 </form>
 
-<h3>Select price_id:</h3>
-<form method='POST'> {% csrf_token %}
-<select name='price_id'>
-    {% for entry in price_options %}
-        <option value='{{ entry.cell_id }}'>{{ entry.price_name }}</option>
-    {% endfor %}
-</select>
-</form>
 
+{% endblock %}
+{% block footer %}
+<p>Created by munch</p>
 {% endblock %}

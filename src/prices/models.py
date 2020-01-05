@@ -18,6 +18,9 @@ class PriceInput(models.Model):
     cell_manufacturing = models.DecimalField(db_column='cellManufacturing', max_digits=20, decimal_places=2)
     pack_integration = models.DecimalField(db_column='packIntegration', max_digits=20, decimal_places=2)
 
+    def __str__(self):
+        return str(self.price_id) + " - " + self.price_name
+
     class Meta:
         managed = True
         db_table = 'price_input'
