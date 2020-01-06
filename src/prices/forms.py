@@ -3,6 +3,7 @@ from django import forms
 
 class PriceInputForm(forms.Form):
     #Need to fix the names to match names in model here.
+    price_name = forms.CharField(max_length=45)
     cat_active_material = forms.FloatField()
     cat_binder = forms.FloatField()
     cat_conductor = forms.FloatField()

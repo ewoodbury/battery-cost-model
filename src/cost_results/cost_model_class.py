@@ -43,6 +43,7 @@ class CostModel:
     ##################################################################################
     ## Section 2: Importing Price Data
     def get_prices(self):
+        self.priceId = self.priceInput.price_id
         self.price_catActiveMaterial = self.priceInput.cat_active_material
         self.price_catBinder = self.priceInput.cat_binder
         self.price_catConductor = self.priceInput.cat_conductor

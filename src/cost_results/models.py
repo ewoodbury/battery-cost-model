@@ -11,10 +11,15 @@ class CostResultsInfo(models.Model):
     cell_id = models.PositiveIntegerField()
     price_id = models.PositiveIntegerField()
 
+    class Meta:
+        managed = True
+        db_table = 'cost_results_info'
+
 class CostResultsCell(models.Model):
     '''This class stores the cost per cell data for a given model_id
     '''
     model_id = models.AutoField(primary_key=True)
+    # model_id = models.OneToOneField(CostResultsInfo, on_delete=models.CASCADE)
     #not sure if model_id here should be autofield or not
     cat_active_material = models.DecimalField(max_digits=20, decimal_places=2)
     cat_binder = models.DecimalField(max_digits=20, decimal_places=2)
@@ -39,6 +44,7 @@ class CostResultsKwh(models.Model):
     '''This class stores the cost per kWh data for a given model_id
     '''
     model_id = models.AutoField(primary_key=True)
+    # model_id = models.OneToOneField(CostResultsInfo, on_delete=models.CASCADE)
     cat_active_material = models.DecimalField(max_digits=20, decimal_places=2)
     cat_binder = models.DecimalField(max_digits=20, decimal_places=2)
     cat_conductor = models.DecimalField(max_digits=20, decimal_places=2)
