@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Results for model_id = {{query_result_info.model_id}}</h2>
+    <table border="2" width="600">
+        <tr>
+            <td>model_id</td>
+            <td>model_version</td>
+            <td>date_created</td>
+            <td>cell_id</td>
+            <td>price_id</td>
+        </tr>
+
+        <tr>
+            <td>{{query_result_info.model_id}}</td>
+            <td>{{query_result_info.model_version}}</td>
+            <td>{{query_result_info.date_created}}</td>
+            <td>{{query_result_info.cell_id}}</td>
+            <td>{{query_result_info.price_id}}</td>
+        </tr>
+    </table>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    {% autoescape off %}
+    {{ plt_div }}
+    {% endautoescape %}
+
+
+{% endblock %}

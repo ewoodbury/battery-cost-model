@@ -31,24 +31,24 @@
         <td>{{item.cell_id}}</td>
         <td>{{item.cell_name}}</td>
         <td>{{item.cell_type}}</td>
-        <td>{{item.np_ratio}}</td>
+        <td>{{item.np_ratio|floatformat:3}}</td>
         <td>{{item.electrode_length}}</td>
         <td>{{item.electrode_width}}</td>
         <td>{{item.cat_formula_id}}</td>
         <td>{{item.cat_grav_capacity}}</td>
         <td>{{item.cat_total_loading}}</td>
-        <td>{{item.cat_active_frac}}</td>
-        <td>{{item.cat_conductor_frac}}</td>
-        <td>{{item.an_grav_capacity}}</td>
-        <td>{{item.an_active_frac}}</td>
-        <td>{{item.an_binder_frac}}</td>
-        <td>{{item.an_conductor_frac}}</td>
+        <td>{{item.cat_active_frac|floatformat:3}}</td>
+        <td>{{item.cat_conductor_frac|floatformat:3}}</td>
+        <td>{{item.an_grav_capacity|floatformat:3}}</td>
+        <td>{{item.an_active_frac|floatformat:3}}</td>
+        <td>{{item.an_binder_frac|floatformat:3}}</td>
+        <td>{{item.an_conductor_frac|floatformat:3}}</td>
         <td>{{item.al_foil_thickness}}</td>
         <td>{{item.cu_foil_thickness}}</td>
         <td>{{item.elyte}}</td>
         <td>{{item.separator_name}}</td>
         <td>{{item.can}}</td>
-        <td>{{item.avg_discharge_voltage}}</td>
+        <td>{{item.avg_discharge_voltage|floatformat:3}}</td>
     </tr>
     {% endfor %}
 </table>

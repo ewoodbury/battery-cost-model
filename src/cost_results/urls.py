@@ -8,6 +8,8 @@ urlpatterns = [
 
     path('confirm', views.run_model_confirm, name='run_model_confirm'),
 
+    path('<int:model_id_input>/', views.view_model, name='view_model'),
+
     # path('new/', views.new_cell, name='new_cell'),
 
 #     path('cell_input_confirm/', views.cell_input_confirm, name='cell_input_confirm'),
