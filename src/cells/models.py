@@ -4,8 +4,10 @@ from django.db import models
 class CellInput(models.Model):
     #Might have to change these to separated by _ to behave with forms?
     cell_id = models.AutoField(db_column='cellId', primary_key=True)
-    cell_name = models.CharField(db_column='cellName', max_length=45)
-    #Will change cellname to dropdown of options, still stored in db as str
+    cell_name = models.CharField(
+        db_column='cellName', 
+        max_length=45, 
+        )
     CELL_TYPE_CHOICES = [
     ('18650', '18650'),
     ('2170', '2170'),
@@ -32,7 +34,7 @@ class CellInput(models.Model):
     avg_discharge_voltage = models.FloatField(db_column='avgDischargeVoltage')
 
     def __str__(self):
-        return str(self.cell_id) + " - " + self.cell_name
+        return str(self.cell_id) + " : " + self.cell_name
 
     class Meta:
         managed = True

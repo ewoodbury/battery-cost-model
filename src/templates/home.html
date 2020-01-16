@@ -2,9 +2,74 @@
 
 {% block content %}
 
-    <h2>Home</h2>
-    <p>This is a template</p>
+<h1>
+    Battery Cost App
+    <small class="text-muted">by Ethan Woodbury</small>
+</h1>
+<p class="lead">An application for modeling the cost of lithium-ion batteries</p>
+<br>
+<h2>How to Use</h2>
+<br>
+<div class="row">
+    <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Input</div>
+        <div class="card-body">
+            <h4 class="card-title">1. Cell Input</h4>
+            <p class="card-text">Customize a cell design to your desired specifications by setting metrics like
+                electrode area, N-P ratio, and active material capacity.
+            </p>
+        </div>
+    </div>
+    <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Input</div>
+        <div class="card-body">
+            <h4 class="card-title">2. Price Input</h4>
+            <p class="card-text">Add customized prices for all cell components: active materials,
+                binders, current collectors, etc. Alternatively, use a default price dataset.</p>
+        </div>
+    </div>
+    <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Calculate</div>
+        <div class="card-body">
+            <h4 class="card-title">3. Run Model</h4>
+            <p class="card-text">Choose a cell design and price dataset to plug into the model to
+                calculate the total battery cost. View model as pie chart.
+            </p>
+        </div>
+    </div>
+    <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Visualize</div>
+        <div class="card-body">
+            <h4 class="card-title">4. Compare Models</h4>
+            <p class="card-text">Plot side-by-side cost stacks to compare total cell-level
+                and pack-level costs of previously-created battery models.
+            </p>
+        </div>
+    </div>
+</div>
+<p>If you don't want to make your own models, you can go straight to viewing previously-created 
+    models in <a href="{% url 'compare_view' %}">Compare Models</a>.</p>
+<br>
+<br>
+<div>
+    <h2>About</h2>
+    <br>
+    <h5>Model Methodology</h5>
+    <p>The model first uses the input cell parameters to calculate the energy content of each cell and
+        the material required per cell. This is then used to calculate the material required on a per kWh basis.
+        Finally, the input price dataset is used to calculate the total cost per kilowatt-hour. Model built in
+        Python.
+    </p>
+    <br>
+    <h5>Backend</h5>
+    <p>Built with <a href="https://www.djangoproject.com/">Django</a> (web app framework built on Python) with a MySQL
+        database.</p>
+    <br>
+    <h5>Frontend</h5>
+    <p>Based on <a href="https://getbootstrap.com/">Bootstrap 4</a> (style framework for HTML/CSS).</p>
+    Theme: Lux by <a href="https://www.bootstrapcdn.com/bootswatch/">Bootswatch</a>.
+    Icons by <a href="https://fontawesome.com/">Font Awesome</a>.
+    Graphing library by <a href="https://plot.ly/graphing-libraries/">Plotly</a>.
+    </p>
+</div>
 {% endblock %}
-
-{% comment %} {% block footer %}
-{% endblock footer %} {% endcomment %}

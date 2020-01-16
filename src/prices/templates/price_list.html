@@ -1,45 +1,55 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="{% url 'new_price' %}">Add new price dataset</a>
+<h1>Price Input</h1>
+<a class="btn btn-outline-primary" href="{% url 'new_price' %}">Create new price dataset</a>
+<br>
+<br>
+<br>
 
-<table border="2" width="600">
-    <tr>
-        <td>price_id</td>
-        <td>price_name</td>
-        <td>cat_active_material</td>
-        <td>cat_binder</td>
-        <td>cat_conductor</td>
-        <td>an_active_material</td>
-        <td>an_binder</td>
-        <td>an_conductor</td>
-        <td>al_foil</td>
-        <td>cu_foil</td>
-        <td>can</td>
-        <td>sep</td>
-        <td>elyte</td>
-        <td>cell_manufacturing</td>
-        <td>pack_integration</td>
-    </tr>
-    {% for item in query_results%}
-    <tr>
-        <td>{{item.price_id}}</td>
-        <td>{{item.price_name}}</td>
-        <td>{{item.cat_active_material|floatformat:2}}</td>
-        <td>{{item.cat_binder|floatformat:2}}</td>
-        <td>{{item.cat_conductor|floatformat:2}}</td>
-        <td>{{item.an_active_material|floatformat:2}}</td>
-        <td>{{item.an_binder|floatformat:2}}</td>
-        <td>{{item.an_conductor|floatformat:2}}</td>
-        <td>{{item.al_foil|floatformat:2}}</td>
-        <td>{{item.cu_foil|floatformat:2}}</td>
-        <td>{{item.can|floatformat:2}}</td>
-        <td>{{item.sep|floatformat:2}}</td>
-        <td>{{item.elyte|floatformat:2}}</td>
-        <td>{{item.cell_manufacturing|floatformat:2}}</td>
-        <td>{{item.pack_integration|floatformat:2}}</td>
-    </tr>
-    {% endfor %}
+<h4>Previous Prices</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <td>price_id</td>
+            <td>price_name</td>
+            <td>cat_active_material</td>
+            <td>cat_binder</td>
+            <td>cat_conductor</td>
+            <td>an_active_material</td>
+            <td>an_binder</td>
+            <td>an_conductor</td>
+            <td>al_foil</td>
+            <td>cu_foil</td>
+            <td>can</td>
+            <td>sep</td>
+            <td>elyte</td>
+            <td>cell_manufacturing</td>
+            <td>pack_integration</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in query_results%}
+        <tr>
+            <td>{{item.price_id}}</td>
+            <td>{{item.price_name}}</td>
+            <td>{{item.cat_active_material|floatformat:2}}</td>
+            <td>{{item.cat_binder|floatformat:2}}</td>
+            <td>{{item.cat_conductor|floatformat:2}}</td>
+            <td>{{item.an_active_material|floatformat:2}}</td>
+            <td>{{item.an_binder|floatformat:2}}</td>
+            <td>{{item.an_conductor|floatformat:2}}</td>
+            <td>{{item.al_foil|floatformat:2}}</td>
+            <td>{{item.cu_foil|floatformat:2}}</td>
+            <td>{{item.can|floatformat:2}}</td>
+            <td>{{item.sep|floatformat:2}}</td>
+            <td>{{item.elyte|floatformat:2}}</td>
+            <td>{{item.cell_manufacturing|floatformat:2}}</td>
+            <td>{{item.pack_integration|floatformat:2}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 
 

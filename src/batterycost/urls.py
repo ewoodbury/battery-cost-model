@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from pages.views import home_view
+from pages.views import home_view, login_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +23,6 @@ urlpatterns = [
     path('cells/', include('cells.urls')),
     path('prices/', include('prices.urls')),
     path('run_model/', include('cost_results.urls')),
+    path('compare/', include('compare.urls')),
+    path('login/', login_view, name='login'),
 ]

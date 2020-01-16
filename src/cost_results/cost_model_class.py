@@ -1,9 +1,9 @@
-from decimal import *
+# from decimal import *
 class CostModel:
 
     # Initializer:
     def __init__(self, cell_input, price_input):
-        self.MODEL_ID=1.00 #Last Modified 2020-01-03
+        self.MODEL_VERSION=1.00 #Last Modified 2020-01-03
         self.cellInput = cell_input
         self.priceInput = price_input
         # Put in a model ID somewhere???

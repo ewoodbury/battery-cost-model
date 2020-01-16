@@ -1,4 +1,6 @@
 from django.db import models
+from cells.models import CellInput
+from prices.models import PriceInput
 
 # Create your models here.
 class CostResultsInfo(models.Model):
@@ -14,6 +16,11 @@ class CostResultsInfo(models.Model):
     class Meta:
         managed = True
         db_table = 'cost_results_info'
+    
+    def __str__(self):
+        query_cellinput = CellInput.objects.get(cell_id=self.cell_id)
+        query_priceinput = PriceInput.objects.get(price_id=self.price_id)
+        return f"Model ID {self.model_id}, {query_cellinput.cell_name} + {query_priceinput.price_name}"
 
 class CostResultsCell(models.Model):
     '''This class stores the cost per cell data for a given model_id
@@ -21,19 +28,20 @@ class CostResultsCell(models.Model):
     model_id = models.AutoField(primary_key=True)
     # model_id = models.OneToOneField(CostResultsInfo, on_delete=models.CASCADE)
     #not sure if model_id here should be autofield or not
-    cat_active_material = models.DecimalField(max_digits=20, decimal_places=2)
-    cat_binder = models.DecimalField(max_digits=20, decimal_places=2)
-    cat_conductor = models.DecimalField(max_digits=20, decimal_places=2)
-    an_active_material = models.DecimalField(max_digits=20, decimal_places=2)
-    an_binder = models.DecimalField(max_digits=20, decimal_places=2)
-    an_conductor = models.DecimalField(max_digits=20, decimal_places=2)
-    al_foil = models.DecimalField(max_digits=20, decimal_places=2)
-    cu_foil = models.DecimalField(max_digits=20, decimal_places=2)
-    can = models.DecimalField(max_digits=20, decimal_places=2)
-    sep = models.DecimalField(max_digits=20, decimal_places=2)
-    elyte = models.DecimalField(max_digits=20, decimal_places=2)
-    manufacturing = models.DecimalField(max_digits=20, decimal_places=2)
-    pack_integration = models.DecimalField(max_digits=20, decimal_places=2)
+    # Have to make sure this all works with float instead of decimal
+    cat_active_material = models.FloatField()
+    cat_binder = models.FloatField()
+    cat_conductor = models.FloatField()
+    an_active_material = models.FloatField()
+    an_binder = models.FloatField()
+    an_conductor = models.FloatField()
+    al_foil = models.FloatField()
+    cu_foil = models.FloatField()
+    can = models.FloatField()
+    sep = models.FloatField()
+    elyte = models.FloatField()
+    manufacturing = models.FloatField()
+    pack_integration = models.FloatField()
 
 
     class Meta:
@@ -45,19 +53,19 @@ class CostResultsKwh(models.Model):
     '''
     model_id = models.AutoField(primary_key=True)
     # model_id = models.OneToOneField(CostResultsInfo, on_delete=models.CASCADE)
-    cat_active_material = models.DecimalField(max_digits=20, decimal_places=2)
-    cat_binder = models.DecimalField(max_digits=20, decimal_places=2)
-    cat_conductor = models.DecimalField(max_digits=20, decimal_places=2)
-    an_active_material = models.DecimalField(max_digits=20, decimal_places=2)
-    an_binder = models.DecimalField(max_digits=20, decimal_places=2)
-    an_conductor = models.DecimalField(max_digits=20, decimal_places=2)
-    al_foil = models.DecimalField(max_digits=20, decimal_places=2)
-    cu_foil = models.DecimalField(max_digits=20, decimal_places=2)
-    can = models.DecimalField(max_digits=20, decimal_places=2)
-    sep = models.DecimalField(max_digits=20, decimal_places=2)
-    elyte = models.DecimalField(max_digits=20, decimal_places=2)
-    manufacturing = models.DecimalField(max_digits=20, decimal_places=2)
-    pack_integration = models.DecimalField(max_digits=20, decimal_places=2)
+    cat_active_material = models.FloatField()
+    cat_binder = models.FloatField()
+    cat_conductor = models.FloatField()
+    an_active_material = models.FloatField()
+    an_binder = models.FloatField()
+    an_conductor = models.FloatField()
+    al_foil = models.FloatField()
+    cu_foil = models.FloatField()
+    can = models.FloatField()
+    sep = models.FloatField()
+    elyte = models.FloatField()
+    manufacturing = models.FloatField()
+    pack_integration = models.FloatField()
 
 
     class Meta:

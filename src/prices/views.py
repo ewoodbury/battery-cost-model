@@ -1,9 +1,9 @@
 from django.shortcuts import render
-
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import PriceInput
-
 from .forms import PriceInputForm
-# Create your views here.
+
 def price_list(request):
     '''Renders view of all previously registered price datasets
     '''
@@ -22,7 +22,7 @@ def new_price(request):
         my_form = PriceInputForm(request.POST)
         if my_form.is_valid():
             PriceInput.objects.create(**my_form.cleaned_data)
-            my_form = PriceInputForm()
+            return HttpResponseRedirect(reverse('price_list'))
     else: #if it's an initial rendering with method == GET, generate blank page
         my_form = PriceInputForm()
 

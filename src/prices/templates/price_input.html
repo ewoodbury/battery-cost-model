@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h2>Create New Price Dataset</h2>
+<br>
 <form method='POST'> {% csrf_token %}
     {{ form.as_p }}
-    <input type='submit' value='Save' />
+    <input type='submit' class="btn btn-primary" value='Register Price Dataset' />
 </form>
 
 {% endblock %}

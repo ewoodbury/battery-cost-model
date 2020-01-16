@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Select Models to Compare</h2>
+<p>Select up to 6 Model IDs:</p>
+<form method='POST'> {% csrf_token %}
+    {{ my_form.as_p }}
+    <input type='submit' class="btn btn-outline-primary" value='View Comparison' />
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> --> 
+</form>
+
+<br>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% autoescape off %}
+{{ plt_div }}
+{% endautoescape %}
+
+{% endblock %}

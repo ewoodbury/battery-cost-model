@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'pages',
     'cells',
     'prices',
-    'cost_results'
+    'cost_results',
+    'compare',
 
 ]
 

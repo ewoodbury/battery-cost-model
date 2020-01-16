@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import CellInput
 from .forms import CellInputForm
 
@@ -26,8 +27,8 @@ def new_cell(request):
         my_form = CellInputForm(request.POST)
         if my_form.is_valid(): # if we know the input data is good
             CellInput.objects.create(**my_form.cleaned_data)
-            my_form = CellInputForm() #Re-renders page as blank
-            #want to make this a redirect to confirmation page instead
+            # my_form = CellInputForm() #Re-renders page as blank
+            return HttpResponseRedirect(reverse('cell_list'))
     else: #if method is GET (it's an initial rendering)
         my_form = CellInputForm()
 

@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method='POST'> {% csrf_token %}
+<h2>Create New Cell</h2>
+<br>
+<form _lpchecked="1" method='POST'> {% csrf_token %}
     {{ my_form.as_p }}
-    <input type='submit' value='Save' />
+    <input type='submit' class="btn btn-primary" value='Register New Cell' />
 </form>
 
 {% endblock %}

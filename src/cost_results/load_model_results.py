@@ -8,7 +8,7 @@ from django.utils.timezone import make_aware
 def load_model_results(cell_instance, price_instance):
     '''Takes the selected cell and price inputs from the run_model page,
     runs the cost calculations with the CostModel class, and 
-    uploads the cost results to the database using django models.
+    uploads the cost results to the database using django interface.
 
     Inputs: 
     cell_instance is an instance of the costs.models.CellInput class.
@@ -19,7 +19,7 @@ def load_model_results(cell_instance, price_instance):
 
     #CostResultsInfo Class:
     info_instance = CostResultsInfo()
-    info_instance.model_version = cost_model_instance.MODEL_ID
+    info_instance.model_version = cost_model_instance.MODEL_VERSION
     info_instance.date_created = make_aware(datetime.now())
     info_instance.cell_id = cost_model_instance.cellId
     info_instance.price_id = cost_model_instance.priceId
@@ -63,4 +63,4 @@ def load_model_results(cell_instance, price_instance):
     kwh_instance.pack_integration = mult_by_cells(cost_model_instance.cost_packIntegration)
     #Saving to db:
     kwh_instance.save()
-    return("Results loaded successfully!")
+    return "Results loaded successfully!"

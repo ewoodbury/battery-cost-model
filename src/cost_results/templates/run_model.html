@@ -2,40 +2,42 @@
 
 {% block content %}
 
-<h2>Create New Model</h2>
+<h1>Run Model</h1>
 <p>Select cell and price inputs to be used in model:</p>
 <form method='POST'> {% csrf_token %}
     {{ my_form.as_p }}
-    <input type='submit' value='Run Model' />
+    <input type='submit' class="btn btn-outline-primary" value='Create New Model' />
 </form>
 
+<br>
 <br>
 
 <h2>Previous Models</h3>
     <p>Click model_id to view results for selected model.</p>
-    <table border="2" width="600">
-        <tr>
-            <td>model_id</td>
-            <td>model_version</td>
-            <td>date_created</td>
-            <td>cell_id</td>
-            <td>price_id</td>
-        </tr>
-        {% for item in query_results%}
-        <tr>
-            <td>
-                <a href="{{item.model_id}}">
-                    {{item.model_id}}
-                </a>
-            </td>
-            <td>{{item.model_version}}</td>
-            <td>{{item.date_created}}</td>
-            <td>{{item.cell_id}}</td>
-            <td>{{item.price_id}}</td>
-        </tr>
-        {% endfor %}
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-primary">
+                <td>model_id</td>
+                <td>model_version</td>
+                <td>date_created</td>
+                <td>cell_id</td>
+                <td>price_id</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in query_results%}
+            <tr>
+                <td>
+                    <a class="text-info" href="{{item.model_id}}">
+                        {{item.model_id}}
+                    </a>
+                </td>
+                <td>{{item.model_version}}</td>
+                <td>{{item.date_created}}</td>
+                <td>{{item.cell_id}}</td>
+                <td>{{item.price_id}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
-
-
-
     {% endblock %}
