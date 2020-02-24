@@ -1,5 +1,5 @@
 # battery-cost-model
-Site is live at bit.ly/batterycost! 
+[Site is live!](bit.ly/batterycost)
 
 This web app allows users to model the cost of lithium ion battery by inputting their own cell and price parameters and calculating the total price of the cell. 
 
