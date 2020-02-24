@@ -1,4 +1,9 @@
 # battery-cost-model
-Cost model for lithium-ion batteries. When finished, this will be a interactive web-based interface that allows users to customize model inputs. Model calculations backend is mostly finished and viewable in model_class.py and run_model.py.
+Site is live at bit.ly/batterycost! 
 
-Django is being used for full-stack web dev, planning to use bootstrap for CSS help and charts.js for interactive plots.
+This web app allows users to model the cost of lithium ion battery by inputting their own cell and price parameters and calculating the total price of the cell. 
+
+What happens to the cost of batteries if the cathode price goes down by 20%? What about the anode or electrolyte? What about if someone discovers a new cathode that holds twice as much energy? This app lets users find out!
+
+Backend built with Django with a MySQL database. Model written in Python.
+Frontend built with Bootstrap 4 (style framework for HTML/CSS). Theme: Lux by Bootswatch. Icons by Font Awesome. Graphing library by Plotly. 
